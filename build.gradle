@@ -1,5 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'com.spring.example.main.Main'
 
 repositories {
     mavenCentral()
@@ -17,6 +20,9 @@ dependencies {
 jar {
     baseName = projectname
     version =  getNextBuildNumber()
+	manifest {
+        attributes 'Main-Class': 'com.spring.example.main.Main'
+    }
 }
 def getNextBuildNumber() {
 	Properties properties = new Properties()
